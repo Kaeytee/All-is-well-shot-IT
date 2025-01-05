@@ -6,20 +6,23 @@ import About from './Pages/About.tsx';
 import RateCard from './Pages/RateCard.tsx';
 import Team from './Pages/Team.tsx';
 import Contact from './Pages/Contact.tsx';
-
-
+import NotFound from './Pages/NotFound.tsx';
+import BookUs from './Pages/BookUs.tsx';
 
 const App = () => {
   return (
     <Router>
-      <div className="w-4/5 mx-auto">
+      <div className="w-4/5 mx-auto py-4">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/RateCard" element={<RateCard />} />
           <Route path="/team" element={<Team />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact-us" element={<Contact />} />
+          <Route path="/book-us" element={<BookUs />} />
+          {/* A 404 page  */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </div>
