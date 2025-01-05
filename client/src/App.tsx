@@ -12,7 +12,7 @@ import BookUs from './Pages/BookUs.tsx';
 const App = () => {
   return (
     <Router>
-      <div className="w-4/5 mx-auto">
+      <div className="w-4/5 mx-auto py-4">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

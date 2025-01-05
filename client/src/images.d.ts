@@ -1,4 +1,3 @@
-// filepath: /home/kaeytee/Desktop/Codes/All-is-well-shot-IT/client/src/images.d.ts
 declare module "*.png" {
 	const value: any;
 	export default value;
@@ -10,6 +9,11 @@ declare module "*.png" {
   }
   
   declare module '*.jpeg' {
+	const value: string;
+	export default value;
+  }
+  
+  declare module '*.svg' {
 	const value: string;
 	export default value;
   }
