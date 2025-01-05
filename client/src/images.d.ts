@@ -1,6 +1,6 @@
 // filepath: /home/kaeytee/Desktop/Codes/All-is-well-shot-IT/client/src/images.d.ts
-declare module '*.png' {
-	const value: string;
+declare module "*.png" {
+	const value: any;
 	export default value;
   }
   
