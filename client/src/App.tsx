@@ -7,7 +7,7 @@ import RateCard from './Pages/RateCard.tsx';
 import Team from './Pages/Team.tsx';
 import Contact from './Pages/Contact.tsx';
 import NotFound from './Pages/NotFound.tsx';
-
+import BookUs from './Pages/BookUs.tsx';
 
 const App = () => {
   return (
@@ -20,6 +20,7 @@ const App = () => {
           <Route path="/RateCard" element={<RateCard />} />
           <Route path="/team" element={<Team />} />
           <Route path="/contact-us" element={<Contact />} />
+          <Route path="/book-us" element={<BookUs />} />
           {/* A 404 page  */}
           <Route path="*" element={<NotFound />} />
         </Routes>
