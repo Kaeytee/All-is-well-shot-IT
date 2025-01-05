@@ -1,13 +1,13 @@
-import { ReportHandler } from 'web-vitals';
+type WebVitalsCallback = (metric: { name: string; value: number; id: string }) => void;
 
-const reportWebVitals = (onPerfEntry?: ReportHandler) => {
-  if (onPerfEntry && onPerfEntry instanceof Function) {
-    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
-      getCLS(onPerfEntry);
-      getFID(onPerfEntry);
-      getFCP(onPerfEntry);
-      getLCP(onPerfEntry);
-      getTTFB(onPerfEntry);
+const reportWebVitals = (onPerfEntry?: WebVitalsCallback) => {
+  if (onPerfEntry && typeof onPerfEntry === 'function') {
+    import('web-vitals').then((webVitals: any) => {
+      webVitals.getCLS(onPerfEntry);
+      webVitals.getFID(onPerfEntry);
+      webVitals.getFCP(onPerfEntry);
+      webVitals.getLCP(onPerfEntry);
+      webVitals.getTTFB(onPerfEntry);
     });
   }
 };
