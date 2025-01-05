@@ -6,7 +6,7 @@ import About from './Pages/About.tsx';
 import RateCard from './Pages/RateCard.tsx';
 import Team from './Pages/Team.tsx';
 import Contact from './Pages/Contact.tsx';
-
+import NotFound from './Pages/NotFound.tsx';
 
 
 const App = () => {
@@ -19,7 +19,9 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/RateCard" element={<RateCard />} />
           <Route path="/team" element={<Team />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact-us" element={<Contact />} />
+          {/* A 404 page  */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </div>
