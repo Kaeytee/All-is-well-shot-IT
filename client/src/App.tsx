@@ -1,14 +1,16 @@
-import React from 'react';
+import React from 'react'
 import './App.css';
+import Navbar from './Components/Navbar/Navbar.tsx';  
+import Footer from './Components/Footer/Footer.tsx';
 
-const App: React.FC = () => {
+const App = () => {
   return (
-    <div className='main'>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-    </div>
-  );
-};
+    <div className='w-4/5 mx-auto'>
+      <Navbar/>
+      App
+      <Footer/>
+      </div>
+  )
+}
 
-export default App;
+export default App
