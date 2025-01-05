@@ -5,10 +5,11 @@ import instagram from '../../Assets/ig.svg';
 import mail from '../../Assets/mail.svg';
 import youtube from '../../Assets/youtube.svg';
 import whatsapp from '../../Assets/whatsapp.svg';
+import phone from '../../Assets/call.svg';
 
 const Footer = () => {
   return (
-    <div className='fixed bottom-0 left-0 right-0 flex justify-center items-center w-full flex-col'>
+    <div className='fixed bottom-0 left-0 right-0 flex justify-center items-center w-full flex-col bg-gray-200'>
       <div className="footer-texts text-center">
         <h1 className='uppercase leading-tight text-9xl'>
           Alliswell <br/> shotit
@@ -22,7 +23,7 @@ const Footer = () => {
           Book Us
         </NavLink>
       </div>
-      <div className="py-8 flex justify-center items-center">
+      <div className="py-3 flex justify-center items-center">
         <a href='https://www.instagram.com/alliswell_shotit/' target='_blank' rel='noreferrer' className='mx-2.5'>
           <img src={instagram} alt="instagram" className='w-8 h-8' />
         </a>
@@ -35,6 +36,16 @@ const Footer = () => {
         <a href='https://wa.me/1234567890' target='_blank' rel='noreferrer' className='mx-2.5'>
           <img src={whatsapp} alt="whatsapp" className='w-8 h-8' />
         </a>
+        <a href='tel:1234567890' target='_blank' rel='noreferrer' className='mx-2.5'>
+          <img src={phone} alt="phone" className='w-8 h-8' />
+        </a>
+      </div>
+      <div className="py-1">
+        <p className='text-center text-gray-600'>© 2024 AllisWell Shot It. All rights reserved.
+        </p>
+        {/* the designer and the coders name  */}
+        <p className='text-center py-4 ' style={{ color: '#421B9F'}}>Designed by Nana , developed by <a href='https://example.com' target='_blank' rel='noreferrer' className='hover:bg-gray-500 hover:text-white'>TechStract</a>
+        </p>
       </div>
     </div>
   );
