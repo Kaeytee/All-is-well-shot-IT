@@ -9,7 +9,7 @@ import phone from '../../Assets/call.svg';
 
 const Footer = () => {
   return (
-    <div className='fixed bottom-0 left-0 right-0 flex justify-center items-center w-full flex-col bg-gray-200'>
+    <div className=' bottom-0 left-0 right-0 flex justify-center items-center w-full flex-col bg-gray-200'>
       <div className="footer-texts text-center">
         <h1 className='uppercase leading-tight text-9xl'>
           Alliswell <br/> shotit
