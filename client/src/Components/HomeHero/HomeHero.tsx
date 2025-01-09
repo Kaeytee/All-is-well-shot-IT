@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import './HomeHero.css';
 import homeImage1 from '../../Assets/homeImage1.png';
 import homeImage2 from '../../Assets/homeImage2.png';
@@ -27,7 +28,8 @@ const HomeHero = () => {
   <div className="hometext">
 	<h1 className="text-4xl font-bold">The Eye of Videography</h1>
 	<p className="text-2xl text-neutral-300">Today's Moments are Tomorrow's Memories</p>
-	<button className="homebutton bg-white text-black hover:bg-gray-400 hover:text-white px-12 py-3 rounded-lg active:bg-gray-700 text-sm uppercase font-medium">Rate Card</button>
+	<Link to='/ratecard' >	<button className="homebutton bg-white text-black hover:bg-gray-400 hover:text-white px-12 py-3 rounded-lg active:bg-gray-700 text-sm uppercase font-medium">Rate Card</button>
+	</Link>
   </div></div>
   )
 }

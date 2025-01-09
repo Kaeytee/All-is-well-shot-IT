@@ -8,6 +8,7 @@ const Home = () => {
   return (
     <div className=" justify-center items-center ">
       <HomeHero />
+      <div className="h"></div>
       <CustomerTestimonials />
     </div>
   );
