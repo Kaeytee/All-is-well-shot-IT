@@ -10,7 +10,7 @@ const WhatWeStandFor = () => {
       {/* Top Section */}
       <div className="text-center px-4">
         <div className="topSec h-80 flex flex-col items-center justify-center">
-          <h1 className="text-lg text-gray-600 mb-4">What we stand for</h1>
+          <h1 className="text-lg text-gray-600 mb-4 uppercase">What we stand for</h1>
           <p className="format text-3xl font-medium leading-relaxed">
             Capturing the essence and emotions of every occasion with our unique
             and creative approach.
@@ -22,7 +22,7 @@ const WhatWeStandFor = () => {
       <div className="flex flex-col lg:flex-row items-center justify-between space-y-8 lg:space-y-0 lg:space-x-6 px-4">
         {/* Left Section */}
         <div className="flex-1 text-center lg:text-center">
-          <h1 className="text-lg text-gray-600 items-center mb-10">About Us</h1>
+          <h1 className="text-lg text-gray-600 items-center mb-5 uppercase">About Us</h1>
           <p className="text-3xl items-center font-normal mb-6">Who Are we</p>
           <p className="text text-lg text-gray-600 mb-6 leading-relaxed">
             We are a team of videographers who work closely with clients and
@@ -57,7 +57,7 @@ const WhatWeStandFor = () => {
 
         {/* Right Section */}
         <div className="flex-1 text-center lg:text-center">
-          <h1 className="text-lg text-gray-600 items-center mb-10">
+          <h1 className="text-lg text-gray-600 items-center mb-5 uppercase">
             Our Services
           </h1>
           <p className="text-3xl items-center font-normal mb-6">What we do</p>
