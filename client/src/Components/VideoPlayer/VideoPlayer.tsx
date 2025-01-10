@@ -74,11 +74,14 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoSrc, imageSrc1, imageSrc
       </div>
 
 
-
+<div className="py-11">
 
       <div className="w-full h-[594px] relative">
         <img src={imageSrc1} alt="Portfolio" className="object-fill w-full h-[594px]" />
       </div>
+
+</div>
+
 
       <div className="w-full h-[594px] relative">
         <img src={imageSrc2} alt="Portfolio" className="object-fill w-full h-[594px]" />
