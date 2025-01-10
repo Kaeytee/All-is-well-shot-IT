@@ -8,6 +8,7 @@ import Team from './Pages/Team.tsx';
 import Contact from './Pages/Contact.tsx';
 import NotFound from './Pages/NotFound.tsx';
 import BookUs from './Pages/BookUs.tsx';
+import Portfolio from './Pages/Porfolio.tsx';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/team" element={<Team />} />
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/book-us" element={<BookUs />} />
+          <Route path="/portfolio" element={<Portfolio />} />
           {/* A 404 page  */}
           <Route path="*" element={<NotFound />} />
         </Routes>

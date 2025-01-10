@@ -1,13 +1,14 @@
 
 .gallery{
 	height: 594px;
-	width: 1273px;
+	
 	margin: 0 auto;
 }
 
 .image1, .image2, .image3, .image4, .image5, .image6 {
 	transition: transform 0.25s ease-in-out; /* Smooth transition for both hover and un-hover */
-	
+	width: 550px;
+	height: auto;
   }
 .gallery {
 	position: relative;
@@ -31,17 +32,17 @@
   }
   
   .gallery:hover .image4 {
-	transform: translate(-40px, -330px)rotate(40deg)scale(1.3); /* Move image4 to the top left */
+	transform: translate(-40px, -350px)rotate(40deg)scale(1.3); /* Move image4 to the top left */
 	transition: transform 0.25s ease-in-out;
   }
   
   .gallery:hover .image5 {
-	transform: translate(-6px, -192px)rotate(40deg)scale(1.2); /* Move image5 diagonally to top */
+	transform: translate(-3px, -206px)rotate(40deg)scale(1.2); /* Move image5 diagonally to top */
 	transition: transform 0.25s ease-in-out;
   }
   
   .gallery:hover .image6 {
-	transform: translate(43px, -51px)rotate(40deg)scale(1.2); /* Move image6 diagonally to bottom */
+	transform: translate(4px, -59px)rotate(40deg)scale(1.2); /* Move image6 diagonally to bottom */
 	transition: transform 0.25s ease-in-out;
   }
   .hometext{
