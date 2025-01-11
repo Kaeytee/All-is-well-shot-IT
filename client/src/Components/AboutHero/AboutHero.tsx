@@ -10,7 +10,7 @@ const AboutHero = () => {
 	  <img
 		src={about}
 		alt="About Us Background"
-		className="about-image w-full h-full object-cover transform transition-transform duration-500 hover:scale-125"
+		className="about-image w-full h-full object-cover transform transition-transform duration-500 "
 	  />
 	  {/* Text Overlay */}
 	  <div className="absolute inset-0 flex items-center justify-center bg-black/10 pointer-events-none">
