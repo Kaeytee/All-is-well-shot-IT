@@ -1,0 +1,16 @@
+.heroimg{
+	width: 637px;
+height: 383px;
+flex-shrink: 0;
+}
+.text{
+	line-height: normal;
+	width: 539px;
+	margin: 0 auto;
+}
+.format{
+	width: 820px;
+height: 202px;
+flex-shrink: 0;
+margin: 0 auto;
+}

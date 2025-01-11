@@ -1,8 +1,10 @@
 import React from 'react'
-
+import CustomerTestimonials from '../Components/CustomerTestimonials/CustomerTestimonials.tsx'
 const RateCard = () => {
   return (
-	<div>RateCard</div>
+	<div>RateCard
+    <CustomerTestimonials/>
+  </div>
   )
 }
 
