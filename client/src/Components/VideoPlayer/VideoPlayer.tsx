@@ -34,7 +34,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
       try {
         if (videoRef1.current) {
           await videoRef1.current.play();
-          setAudioPermission(false);
+          setAudioPermission(true);
         }
       } catch (err) {
         setAudioPermission(false);
@@ -61,7 +61,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
   return (
     <div className="relative w-full overflow-hidden">
       {/* Video */}
-      <div className="relative w-full h-[594px]">
+      <div className="relative w-full h-[700px]">
   {/* Video */}
   <video
     ref={videoRef1}
@@ -126,10 +126,10 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
             <p className="text-3xl items-center font-normal mb-6 ">
               Celebrations
             </p>
-            <div className="w-full h-[594px] relative py-6">
+            <div className="w-full h-[700px] relative py-6">
               <video
                 ref={videoRef2}
-                className="object-fill w-full h-[594px]"
+                className="object-fill w-full h-[700px]"
                 loop
                 muted
                 playsInline
