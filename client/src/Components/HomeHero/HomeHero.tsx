@@ -18,8 +18,8 @@ const HomeHero = () => {
   </div>
   <div className="downdiv flex justify-evenly">
     <img src={homeImage4} alt="homeImage4" className="image4 translate-x-32 translate-y-10" />
-    <img src={homeImage5} alt="homeImage5" className="image5 translate-x-20 -translate-y-32" />
-    <img src={homeImage6} alt="homeImage6" className="image6 translate-x-9 -translate-y-80" />
+    <img src={homeImage5} alt="homeImage5" className="image5 translate-x-20 -translate-y-36" />
+    <img src={homeImage6} alt="homeImage6" className="image6 translate-x-9 -translate-y-80 scale-110" />
   </div>
   <div className="hometext">
     <h1 className="text-4xl font-bold">The Eye of Videography</h1>

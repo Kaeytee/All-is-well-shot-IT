@@ -1,5 +1,4 @@
-// VideoPlayer.tsx
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from "react";
 
 interface VideoPlayerProps {
   videoSrc: string;
@@ -7,7 +6,11 @@ interface VideoPlayerProps {
   imageSrc2: string;
 }
 
-const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoSrc, imageSrc1, imageSrc2 }) => {
+const VideoPlayer: React.FC<VideoPlayerProps> = ({
+  videoSrc,
+  imageSrc1,
+  imageSrc2,
+}) => {
   const videoRef1 = useRef<HTMLVideoElement>(null);
   const videoRef2 = useRef<HTMLVideoElement>(null);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -19,10 +22,10 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoSrc, imageSrc1, imageSrc
     };
 
     handleResize();
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -31,7 +34,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoSrc, imageSrc1, imageSrc
       try {
         if (videoRef1.current) {
           await videoRef1.current.play();
-          setAudioPermission(true);
+          setAudioPermission(false);
         }
       } catch (err) {
         setAudioPermission(false);
@@ -57,63 +60,106 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoSrc, imageSrc1, imageSrc
 
   return (
     <div className="relative w-full overflow-hidden">
-      <video
-        ref={videoRef1}
-        className="object-fill w-full h-[594px]"
-        loop
-        muted
-        playsInline
-        preload="auto"
-      >
-        <source src={videoSrc} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      {/* Video */}
+      <div className="relative w-full h-[594px]">
+  {/* Video */}
+  <video
+    ref={videoRef1}
+    className="object-fill w-full h-full"
+    loop
+    muted
+    playsInline
+    preload="auto"
+  >
+    <source src={videoSrc} type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
 
-      <div className="absolute inset-0 flex items-center justify-center text-white text-5xl font-semibold uppercase">
-        Portfolio
-      </div>
-
-
-<div className="py-11">
-
-      <div className="w-full h-[594px] relative">
-        <img src={imageSrc1} alt="Portfolio" className="object-fill w-full h-[594px]" />
-      </div>
-
+  {/* Centered "PORTFOLIO" Text */}
+  <div className="absolute inset-0 flex items-center justify-center">
+    <div className="text-white text-5xl font-semibold uppercase z-10">
+      Portfolio
+    </div>
+  </div>
 </div>
 
 
-      <div className="w-full h-[594px] relative">
-        <img src={imageSrc2} alt="Portfolio" className="object-fill w-full h-[594px]" />
+      {/* Other Content */}
+      <div className="py-28">
+        <div className="flex-1 text-center lg:text-center">
+          <h1 className="text-lg text-gray-600 items-center mb-2 ">Our Works</h1>
+          <p className="text-3xl items-center font-normal mb-6 uppercase">
+            Our Portfolio
+          </p>
+        </div>
+
+        <div className="w-full h-[594px] relative py-28">
+          <img
+            src={imageSrc1}
+            alt="Portfolio"
+            className="object-fill w-full h-[594px]"
+          />
+        </div>
       </div>
 
+      <div className="py-12">
+        <div className="flex-1 text-center lg:text-center">
+          <h1 className="text-lg text-gray-600 items-center mb-2 uppercase">
+            ENGAGEMENTS
+          </h1>
+          <p className="text-3xl items-center font-normal mb-3 ">
+            Traditional / White weddings
+          </p>
+          <div className="w-full h-[594px] relative py-6">
+            <img
+              src={imageSrc2}
+              alt="Portfolio"
+              className="object-fill w-full h-[594px]"
+            />
+          </div>
+        </div>
+        <div className="py-12">
+          <div className="flex-1 text-center lg:text-center">
+            <h1 className="text-lg text-gray-600 items-center mb-2 uppercase">
+              ENGAGEMENTS
+            </h1>
+            <p className="text-3xl items-center font-normal mb-6 ">
+              Celebrations
+            </p>
+            <div className="w-full h-[594px] relative py-6">
+              <video
+                ref={videoRef2}
+                className="object-fill w-full h-[594px]"
+                loop
+                muted
+                playsInline
+                preload="auto"
+              >
+                <source src={videoSrc} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          <div className="flex-1 text-center lg:text-center py-12 mb-36">
+            <h1 className="text-lg text-gray-600 items-center mb-2 uppercase">
+              TRAILERS
+            </h1>
+            <p className="text-3xl items-center font-normal mb-6 ">
+              Pre-wedding & wedding
+            </p>
+          </div>
+        </div>
 
-
-
-
-
-
-      <video
-        ref={videoRef2}
-        className="object-fill w-full h-[594px]"
-        loop
-        muted
-        playsInline
-        preload="auto"
-      >
-        <source src={videoSrc} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-
-      {!isSmallScreen && (
-        <div
-          className="absolute inset-0"
-          style={{ background: 'rgba(0, 0, 0, 0)' }}
-          onMouseEnter={() => {
-            videoRef1.current?.play();
-          }}
-        ></div>
-      )}
+        {!isSmallScreen && (
+          <div
+            className="absolute inset-0"
+            style={{ background: "rgba(0, 0, 0, 0)" }}
+            onMouseEnter={() => {
+              videoRef1.current?.play();
+            }}
+          ></div>
+        )}
+      </div>
     </div>
   );
 };
