@@ -4,7 +4,7 @@ import about from '../../Assets/About.png';
 
 const AboutHero = () => {
   return (
-	<div className="relative w-full overflow-hidden">
+	<div className="relative w-full mx-auto overflow-hidden">
 	{/* Background Image */}
 	<div className="relative w-full h-[594px] overflow-hidden">
 	  <img

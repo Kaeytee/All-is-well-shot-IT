@@ -6,11 +6,16 @@ import WhatWeStandFor from "../Components/WhatWeStandFor/WhatWeStandFor.tsx";
 
 const Home = () => {
   return (
-    <div className="justify-center items-center space-y-12">
-      <HomeHero />
-      <WhatWeStandFor/>
-      <hr />
-      <div className="pb-20"> {/* Add padding below */}
+    <div className="">
+
+      <div className="justify-center items-center space-y-12  mx-auto">
+        <div className="w-4/5 mx-auto">
+          <HomeHero />
+        </div>
+        <WhatWeStandFor />
+        <hr />
+      </div>
+      <div className="pb-20 w-full">
         <CustomerTestimonials />
       </div>
     </div>

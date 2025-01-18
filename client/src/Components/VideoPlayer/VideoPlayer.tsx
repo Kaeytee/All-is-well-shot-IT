@@ -59,7 +59,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
   }, [audioPermission]);
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="relative w-4/5 mx-auto overflow-hidden">
       {/* Video */}
       <div className="relative w-full h-[700px]">
   {/* Video */}
