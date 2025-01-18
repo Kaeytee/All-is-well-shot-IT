@@ -41,7 +41,7 @@ const Footer = () => {
         </a>
       </div>
       <div className="py-1">
-        <p className='text-center text-gray-600'>© 2024 AllisWell Shot It. All rights reserved.
+        <p className='text-center text-gray-600'>© 2024 Alliswell Shot It. All rights reserved.
         </p>
         {/* the designer and the coders name  */}
         <p className='text-center py-4 ' style={{ color: '#421B9F'}}>Designed by Nana , developed by <a href='https://example.com' target='_blank' rel='noreferrer' className='hover:bg-gray-500 hover:text-white'>BlockStract</a>
