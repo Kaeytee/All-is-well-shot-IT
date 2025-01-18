@@ -1,17 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Input } from "../Components/ui/input.tsx";
 import { Textarea } from "../Components/ui/textarea.tsx";
 import { Button } from "../Components/ui/button.tsx";
 
 const BookUs = () => {
+  const location = useLocation();
+  const bookingData = location.state;
+
+  // Format the booking details for the textarea
+  const formatBookingDetails = () => {
+    if (!bookingData) return '';
+    
+    return `Package: ${bookingData.title}
+Price: GHC ${bookingData.fee}
+Type: ${bookingData.description}
+Details:
+${bookingData.detail1 || ''}
+${bookingData.detail2 || ''}
+${bookingData.detail3 || ''}`;
+  };
+
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
-    service: '',
-    message: ''
+    service: bookingData?.title || '', // Initialize with booking title if available
+    message: formatBookingDetails() // Initialize with formatted booking details
   });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -92,13 +113,13 @@ const BookUs = () => {
             <div className="space-y-2">
               <label className="text-sm font-medium">MESSAGE</label>
               <Textarea
-                name="message"
-                value={formData.message}
-                onChange={handleInputChange}
-                placeholder="Hi there, I want to book a service."
-                className="min-h-[150px] rounded-none"
-                required
-              />
+          name="message"
+          value={formData.message}
+          onChange={handleInputChange}
+          placeholder="Hi there, I want to book a service."
+          className="min-h-[150px] rounded-none"
+          required
+        />
             </div>
             <Button type="submit" className="w-full rounded-none bg-black text-white hover:bg-black/90 ">
               SUBMIT
@@ -112,3 +133,4 @@ const BookUs = () => {
 };
 
 export default BookUs;
+
