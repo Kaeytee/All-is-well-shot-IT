@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import CustomerTestimonials from '../Components/CustomerTestimonials/CustomerTestimonials.tsx';
 import Weddings from '../Assets/Weddings';
 // import Proposals from '../Assets/Proposals';
-import Proposal from '../Assets/Proposal.png'
+import Proposal from '../Assets/Proposal.png';
 import Engagements from '../Assets/Engagements';
 import wedding from '../Assets/Wedding.png';
 import engagement from '../Assets/Engagement.png';
@@ -52,7 +52,10 @@ const RateCardItem = ({ id, title, fee, description, detail1, detail2, detail3 ,
 
 const RateCard = () => {
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gray-100 justify-center items-center">
+      <div className="w-[80%] mx-auto">
+
+
       <section className="py-16 px-4 relative bg-cover bg-center mb-16" style={{ backgroundImage: `url(${engagement})` }}>
         <div className="absolute inset-0"></div>
         <div className="max-w-6xl mx-auto relative z-10 space-y-8">
@@ -143,6 +146,9 @@ const RateCard = () => {
 
 
       </section>
+
+      </div>
+      
 
       <CustomerTestimonials />
     </div>
