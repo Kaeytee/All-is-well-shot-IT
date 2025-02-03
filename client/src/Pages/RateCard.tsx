@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import CustomerTestimonials from '../Components/CustomerTestimonials/CustomerTestimonials.tsx';
 import Weddings from '../Assets/Weddings';
-import Proposals from '../Assets/Proposals';
+// import Proposals from '../Assets/Proposals';
 import Proposal from '../Assets/Proposal.png'
 import Engagements from '../Assets/Engagements';
 import wedding from '../Assets/Wedding.png';
