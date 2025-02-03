@@ -13,7 +13,7 @@ import Portfolio from './Pages/Porfolio.tsx';
 const App = () => {
   return (
     <Router>
-      <div className="w-4/5 mx-auto py-4">
+      <div className="flex min-h-screen w-full flex-col">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

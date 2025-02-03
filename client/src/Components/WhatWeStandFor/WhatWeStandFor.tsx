@@ -8,9 +8,9 @@ const WhatWeStandFor = () => {
   return (
     <div>
       {/* Top Section */}
-      <div className="text-center px-4">
+      <div className="text-center px-4 w-2/5 mx-auto">
         <div className="topSec h-80 flex flex-col items-center justify-center">
-          <h1 className="text-lg text-gray-600 mb-4 uppercase">What we stand for</h1>
+          <h1 className="text-lg text-gray-600 mb-4 uppercase mt-5">What we stand for</h1>
           <p className="format text-3xl font-medium leading-relaxed">
             Capturing the essence and emotions of every occasion with our unique
             and creative approach.
@@ -51,7 +51,7 @@ const WhatWeStandFor = () => {
           <img
             src={hero2}
             alt="Portfolio"
-            className="heroimg rounded-lg w-full"
+            className="heroimg rounded-lg w-3/4 mx-auto"
           />
         </div>
 

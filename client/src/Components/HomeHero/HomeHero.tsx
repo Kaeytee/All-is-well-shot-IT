@@ -18,12 +18,12 @@ const HomeHero = () => {
   </div>
   <div className="downdiv flex justify-evenly">
     <img src={homeImage4} alt="homeImage4" className="image4 translate-x-32 translate-y-10" />
-    <img src={homeImage5} alt="homeImage5" className="image5 translate-x-20 -translate-y-32" />
-    <img src={homeImage6} alt="homeImage6" className="image6 translate-x-9 -translate-y-80" />
+    <img src={homeImage5} alt="homeImage5" className="image5 translate-x-20 -translate-y-36" />
+    <img src={homeImage6} alt="homeImage6" className="image6 translate-x-9 -translate-y-80 scale-110" />
   </div>
   <div className="hometext">
-    <h1 className="text-4xl font-bold">The Eye of Videography</h1>
-    <p className="text-2xl text-neutral-300">Today's Moments are Tomorrow's Memories</p>
+    <h1 className="text-6xl font-normal">The Epitomy of Creativity</h1>
+    <p className="text-2xl text-neutral-300">Your Moment, Our Focus</p>
     <Link to='/ratecard'>
       <button className="homebutton bg-white text-black hover:bg-gray-500 hover:text-white px-12 py-3 rounded-lg active:bg-gray-700 text-sm uppercase font-medium">
         Rate Card
