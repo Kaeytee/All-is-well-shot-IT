@@ -3,13 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import CustomerTestimonials from '../Components/CustomerTestimonials/CustomerTestimonials.tsx';
 import Weddings from '../Assets/Weddings';
 import Proposals from '../Assets/Proposals';
+import Proposal from '../Assets/Proposal.png'
 import Engagements from '../Assets/Engagements';
 import wedding from '../Assets/Wedding.png';
-import proposal from '../Assets/Proposal.png';
 import engagement from '../Assets/Engagement.png';
+import EandW from '../Assets/EandW.js';
+import OtherS from '../Assets/OtherS.js';
 
 // Generic Card Component
-const RateCardItem = ({ id, title, fee, description, detail1, detail2, detail3 }) => {
+const RateCardItem = ({ id, title, fee, description, detail1, detail2, detail3 , showDetails = true }) => {
   const navigate = useNavigate();
 
   const handleBookClick = () => {
@@ -37,11 +39,13 @@ const RateCardItem = ({ id, title, fee, description, detail1, detail2, detail3 }
       >
         Book
       </button>
-      <ul className="space-y-2 w-full">
+      {showDetails && (
+              <ul className="space-y-2 w-full">
         {detail1 && <li className="text-sm text-gray-700">{detail1}</li>}
         {detail2 && <li className="text-sm text-gray-700">{detail2}</li>}
         {detail3 && <li className="text-sm text-gray-700">{detail3}</li>}
       </ul>
+      )} 
     </div>
   );
 };
@@ -52,14 +56,14 @@ const RateCard = () => {
       <section className="py-16 px-4 relative bg-cover bg-center mb-16" style={{ backgroundImage: `url(${engagement})` }}>
         <div className="absolute inset-0"></div>
         <div className="max-w-6xl mx-auto relative z-10 space-y-8">
-          <h2 className="text-3xl font-bold text-center text-white">ENGAGEMENTS</h2>
+          <h2 className="text-3xl font-bold text-center text-white">TRADITIONAL MARRIAGE</h2>
           <p className="text-white/80 text-center mx-auto text-sm leading-relaxed" style={{ maxWidth: '1186px' }}>
             Change of date can only be made 2 months before the event. Any change of date without
             consultation will result in a fine of GHC 1,000. Pre-weddings should be done at least 3
             weeks before the event. Payments made are not refundable. For travel outside Accra:
             accommodation and transportation is borne by the client.
           </p>
-          <div className="grid md:grid-cols-3 gap-6 mt-8">
+          <div className="grid md:grid-cols-2 gap-6 mt-8 max-w-2xl mx-auto">
             {Engagements.map((item) => (
               <RateCardItem key={item.id} {...item} />
             ))}
@@ -77,18 +81,17 @@ const RateCard = () => {
             weeks before the event. Payments made are not refundable. For travel outside Accra:
             accommodation and transportation is borne by the client.
           </p>
-          <div className="grid md:grid-cols-3 gap-6 mt-8">
+          <div className="grid md:grid-cols-2 gap-6 mt-8 max-w-2xl mx-auto">
             {Weddings.map((item) => (
               <RateCardItem key={item.id} {...item} />
             ))}
           </div>
         </div>
       </section>
-
-      <section className="py-16 px-4 relative bg-cover bg-center mb-16" style={{ backgroundImage: `url(${proposal})` }}>
-        <div className="absolute inset-0"></div>
+      <section className="py-16 px-4 relative bg-cover bg-center mb-16" style={{ backgroundImage: `url(${wedding})` }}>
+        <div className="absolute inset-0 "></div>
         <div className="max-w-6xl mx-auto relative z-10 space-y-8">
-          <h2 className="text-3xl font-bold text-center text-white">PROPOSALS & PREWEDDINGS</h2>
+          <h2 className="text-3xl font-bold text-center text-white uppercase">engagements and weddings</h2>
           <p className="text-white/80 text-center mx-auto text-sm leading-relaxed" style={{ maxWidth: '1186px' }}>
             Change of date can only be made 2 months before the event. Any change of date without
             consultation will result in a fine of GHC 1,000. Pre-weddings should be done at least 3
@@ -96,11 +99,49 @@ const RateCard = () => {
             accommodation and transportation is borne by the client.
           </p>
           <div className="grid md:grid-cols-2 gap-6 mt-8 max-w-2xl mx-auto">
-            {Proposals.map((item) => (
+            {EandW.map((item) => (
               <RateCardItem key={item.id} {...item} />
             ))}
           </div>
         </div>
+      </section>
+
+      <section className="py-16 px-4 relative bg-cover bg-center mb-16" style={{ backgroundImage: `url(${Proposal})` }}>
+        <div className="absolute inset-0"></div>
+        <div className="max-w-6xl mx-auto relative z-10 space-y-8">
+          <h2 className="text-3xl font-bold text-center text-white uppercase">other services</h2>
+          <p className="text-white/80 text-center mx-auto text-sm leading-relaxed" style={{ maxWidth: '1186px' }}>
+            Change of date can only be made 2 months before the event. Any change of date without
+            consultation will result in a fine of GHC 1,000. Pre-weddings should be done at least 3
+            weeks before the event. Payments made are not refundable. For travel outside Accra:
+            accommodation and transportation is borne by the client.
+          </p>
+          <div className="grid md:grid-cols-1 gap-6 mt-8 max-w-2xl mx-auto text-transparent">
+            {OtherS.map((item) => (
+              <RateCardItem key={item.id} {...item} showDetails={false}/>
+            ))}
+          </div>
+        </div>
+
+{/* COMBO PACKAGE  */}
+
+{/* <div className="grid md:grid-cols-3 gap-6 mt-8">
+            {Weddings.map((item) => (
+              <RateCardItem key={item.id} {...item} />
+            ))}
+          </div> */}
+
+
+
+
+
+
+
+
+
+
+
+
       </section>
 
       <CustomerTestimonials />

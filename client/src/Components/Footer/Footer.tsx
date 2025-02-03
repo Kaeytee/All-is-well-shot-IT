@@ -6,14 +6,14 @@ import mail from '../../Assets/mail.svg';
 import youtube from '../../Assets/youtube.svg';
 import whatsapp from '../../Assets/whatsapp.svg';
 import phone from '../../Assets/call.svg';
+import Logo from "../../Assets/logo.PNG";
+
 
 const Footer = () => {
   return (
     <div className=' bottom-0 left-0 right-0 flex justify-center items-center w-full flex-col bg-gray-200'>
       <div className="footer-texts text-center">
-        <h1 className='uppercase leading-tight text-9xl'>
-          Alliswell <br/> shotit
-        </h1>
+      <img src={Logo} alt="Alliswell Logo" className="mx-auto w-4/5 h-4/ object-contain" />
         <p className='footer-about'>
           Invest with us, your passionate storytellers, as we capture the essence<br/> and emotions of your occasion.
         </p>
@@ -24,19 +24,19 @@ const Footer = () => {
         </NavLink>
       </div>
       <div className="py-3 flex justify-center items-center">
-        <a href='https://www.instagram.com/alliswell_shotit/' target='_blank' rel='noreferrer' className='mx-2.5'>
+        <a href='https://www.instagram.com/alliswellshotit/?locale=Online%2Bentertainment%2C%2Breal%2Bperson%2C%2Belectronic%2Bchess%2Band%2Bcards%2C%2Blottery%2C%2Bsports%2C%2Bcomprehensive%2Breputation%2B(Telegram%3A%2B%40UUjd888888).aqpg&hl=nl' target='_blank' rel='noreferrer' className='mx-2.5'>
           <img src={instagram} alt="instagram" className='w-8 h-8' />
         </a>
-        <a href='mailto:K9A8o@example.com' target='_blank' rel='noreferrer' className='mx-2.5'>
+        <a href='mailto:productions.alliswell@gmail.com' target='_blank' rel='noreferrer' className='mx-2.5'>
           <img src={mail} alt="mail" className='w-8 h-8' />
         </a>
-        <a href='https://www.youtube.com/channel/UC8K9A8o' target='_blank' rel='noreferrer' className='mx-2.5'>
+        <a href='https://www.youtube.com/@alliswellcreativestudios' target='_blank' rel='noreferrer' className='mx-2.5'>
           <img src={youtube} alt="youtube" className='w-8 h-8' />
         </a>
-        <a href='https://wa.me/1234567890' target='_blank' rel='noreferrer' className='mx-2.5'>
+        <a href='http://wa.me/233552727570' target='_blank' rel='noreferrer' className='mx-2.5'>
           <img src={whatsapp} alt="whatsapp" className='w-8 h-8' />
         </a>
-        <a href='tel:1234567890' target='_blank' rel='noreferrer' className='mx-2.5'>
+        <a href='tel:+233552727570' target='_blank' rel='noreferrer' className='mx-2.5'>
           <img src={phone} alt="phone" className='w-8 h-8' />
         </a>
       </div>

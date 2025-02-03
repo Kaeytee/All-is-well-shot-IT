@@ -34,7 +34,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
       try {
         if (videoRef1.current) {
           await videoRef1.current.play();
-          setAudioPermission(true);
+          setAudioPermission(false);
         }
       } catch (err) {
         setAudioPermission(false);
@@ -62,38 +62,36 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
     <div className="relative w-4/5 mx-auto overflow-hidden">
       {/* Video */}
       <div className="relative w-full h-[700px]">
-  {/* Video */}
-  <video
-    ref={videoRef1}
-    className="object-fill w-full h-full"
-    loop
-    muted
-    playsInline
-    preload="auto"
-  >
-    <source src={videoSrc} type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+        {/* Video */}
+        <video
+          ref={videoRef1}
+          className="object-fill w-full h-full"
+          loop
+          muted
+          playsInline
+          preload="auto"
+        >
+          <source src={videoSrc} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
 
-  {/* Centered "PORTFOLIO" Text */}
-  <div className="absolute inset-0 flex items-center justify-center">
-    <div className="text-white text-5xl font-semibold uppercase z-10">
-      Portfolio
-    </div>
-  </div>
-</div>
+        {/* Centered "PORTFOLIO" Text */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-white text-5xl font-semibold uppercase z-10">
+            Portfolio
+          </div>
+        </div>
+      </div>
 
 
       {/* Other Content */}
-      <div className="py-28">
+      <div className="py-16">
         <div className="flex-1 text-center lg:text-center">
-          <h1 className="text-lg text-gray-600 items-center mb-2 ">Our Works</h1>
-          <p className="text-3xl items-center font-normal mb-6 uppercase">
-            Our Portfolio
-          </p>
+          <h1 className="text-3xl text-gray-600 items-center mb-2 ">Traditional Marriage</h1>
+
         </div>
 
-        <div className="w-full h-[594px] relative py-28">
+        <div className="w-full h-[594px] relative py-16">
           <img
             src={imageSrc1}
             alt="Portfolio"
@@ -104,12 +102,25 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
 
       <div className="py-12">
         <div className="flex-1 text-center lg:text-center">
-          <h1 className="text-lg text-gray-600 items-center mb-2 uppercase">
-            ENGAGEMENTS
-          </h1>
-          <p className="text-3xl items-center font-normal mb-3 ">
-            Traditional / White weddings
-          </p>
+          <h1 className="text-3xl text-gray-600 items-center mb-2 ">White Weddings</h1>
+
+
+          <div className="w-full h-[594px] relative py-6">
+            <img
+              src={imageSrc2}
+              alt="Portfolio"
+              className="object-fill w-full h-[594px]"
+            />
+          </div>
+        
+      </div>
+      {/* pre - weddings  */}
+
+      <div className="py-12">
+        <div className="flex-1 text-center lg:text-center">
+          <h1 className="text-3xl text-gray-600 items-center mb-2 ">Pre-Weddings</h1>
+
+
           <div className="w-full h-[594px] relative py-6">
             <img
               src={imageSrc2}
@@ -118,49 +129,59 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
             />
           </div>
         </div>
-        <div className="py-12">
-          <div className="flex-1 text-center lg:text-center">
-            <h1 className="text-lg text-gray-600 items-center mb-2 uppercase">
-              ENGAGEMENTS
-            </h1>
-            <p className="text-3xl items-center font-normal mb-6 ">
-              Celebrations
-            </p>
-            <div className="w-full h-[700px] relative py-6">
-              <video
-                ref={videoRef2}
-                className="object-fill w-full h-[700px]"
-                loop
-                muted
-                playsInline
-                preload="auto"
-              >
-                <source src={videoSrc} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
+       
+      </div>
+      {/* Coperate servcies */}
+      <div className="py-12">
+        <div className="flex-1 text-center lg:text-center">
+          <h1 className="text-3xl text-gray-600 items-center mb-2 ">Coperate Services</h1>
+
+
+          <div className="w-full h-[594px] relative py-6">
+            <img
+              src={imageSrc2}
+              alt="Portfolio"
+              className="object-fill w-full h-[594px]"
+            />
           </div>
-          <div className="flex-1 text-center lg:text-center py-12 mb-36">
-            <h1 className="text-lg text-gray-600 items-center mb-2 uppercase">
-              TRAILERS
-            </h1>
-            <p className="text-3xl items-center font-normal mb-6 ">
-              Pre-wedding & wedding
-            </p>
+        </div>
+      </div>
+
+
+
+      <div className="py-12">
+        <div className="flex-1 text-center lg:text-center">
+          <h1 className="text-3xl text-gray-600 items-center mb-2 ">Parties / Celebrations</h1>
+
+
+          <div className="w-full h-[700px] relative py-6">
+            <video
+              ref={videoRef2}
+              className="object-fill w-full h-[700px]"
+              loop
+              muted
+              playsInline
+              preload="auto"
+            >
+              <source src={videoSrc} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
 
-        {!isSmallScreen && (
-          <div
-            className="absolute inset-0"
-            style={{ background: "rgba(0, 0, 0, 0)" }}
-            onMouseEnter={() => {
-              videoRef1.current?.play();
-            }}
-          ></div>
-        )}
       </div>
+
+      {!isSmallScreen && (
+        <div
+          className="absolute inset-0"
+          style={{ background: "rgba(0, 0, 0, 0)" }}
+          onMouseEnter={() => {
+            videoRef1.current?.play();
+          }}
+        ></div>
+      )}
     </div>
+    </div >
   );
 };
 

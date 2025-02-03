@@ -1,29 +1,20 @@
 const Engagements = [{
 	id: 1,
-	title: "RED BERYL",
-	fee: 'GHC 8,000',
+	title: "GOLD",
+	fee: '4,700',
 	description: "ENGAGEMENT & RECEPTION ONLY",
-	detail1: '3 Videographers',
-	detail2: 'No trailer',
-	detail3: '60 min. Full video on a flash drive'
+	detail1: '2 Videographers',
+	detail2: '1 minute trailer',
+	detail3: '50 min. Full video on a flash drive'
 },
 {
 	id: 2,
-	title: "BLACK OPAL",
-	fee: 'GHC 9,000',
+	title: "PLATINUM",
+	fee: '6,000',
 	description: "ENGAGEMENT & RECEPTION ONLY",
-	detail1: '4 Videographers',
-	detail2: '1 min. 20 sec. and above trailer',
+	detail1: '3 Videographers and a Drone',
+	detail2: '2 min and above trailer',
 	detail3: 'Full-length video on a flash drive'
-},
-{
-	id: 3,
-	title: "BLACK OPAL",
-	fee: 'GHC 11,000',
-	description: "ENGAGEMENT & RECEPTION ONLY",
-	detail1: 'Drone',
-	detail2: '4 Videographers',
-	detail3: '1 min. 20 sec. and above trailerFull-length video on a flash drive'
 }
 
 ]

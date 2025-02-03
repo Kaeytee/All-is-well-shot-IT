@@ -22,7 +22,7 @@ const HomeHero = () => {
     <img src={homeImage6} alt="homeImage6" className="image6 translate-x-9 -translate-y-80 scale-110" />
   </div>
   <div className="hometext">
-    <h1 className="text-4xl font-bold">The Epitomy of Creativity</h1>
+    <h1 className="text-6xl font-normal">The Epitomy of Creativity</h1>
     <p className="text-2xl text-neutral-300">Your Moment, Our Focus</p>
     <Link to='/ratecard'>
       <button className="homebutton bg-white text-black hover:bg-gray-500 hover:text-white px-12 py-3 rounded-lg active:bg-gray-700 text-sm uppercase font-medium">
