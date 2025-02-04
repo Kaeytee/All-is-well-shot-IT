@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';import Navbar from './Components/Navbar/Navbar.tsx';  
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';import Navbar from './Components/Navbar/Navbar.tsx';  
 import Footer from './Components/Footer/Footer.tsx';
 import Home from './Pages/Home.tsx';
 import About from './Pages/About.tsx';
