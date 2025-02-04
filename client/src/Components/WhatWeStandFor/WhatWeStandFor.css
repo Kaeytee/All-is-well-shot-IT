@@ -1,16 +1,32 @@
-.heroimg{
-	width: 637px;
-height: 383px;
-flex-shrink: 0;
-}
-.text{
-	line-height: normal;
-	width: 539px;
-	margin: 0 auto;
-}
-.format{
-	width: 820px;
-height: 202px;
-flex-shrink: 0;
-margin: 0 auto;
-}
+
+/* WhatWeStandFor.css */
+.heroimg {
+	height: 400px;
+	transition: transform 0.3s ease;
+      }
+      
+      @media (min-width: 640px) {
+	.heroimg {
+	  height: 450px;
+	}
+      }
+      
+      @media (min-width: 1024px) {
+	.heroimg {
+	  height: 500px;
+	}
+      }
+      
+      .heroimg:hover {
+	transform: translateY(-5px);
+      }
+      
+      .format {
+	letter-spacing: -0.5px;
+      }
+      
+      @media (min-width: 768px) {
+	.format {
+	  letter-spacing: -0.75px;
+	}
+      }

@@ -1,0 +1,16 @@
+/* filepath: /home/kaeytee/Desktop/Codes/All-is-well-shot-IT/client/src/Pages/Styles/Home.css */
+.container {
+	padding: 0 1rem;
+      }
+      
+      @media (min-width: 768px) {
+	.container {
+	  padding: 0 2rem;
+	}
+      }
+      
+      @media (min-width: 1024px) {
+	.container {
+	  padding: 0 4rem;
+	}
+      }
