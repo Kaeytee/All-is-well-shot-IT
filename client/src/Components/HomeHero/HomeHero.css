@@ -57,3 +57,44 @@
 	padding: 20px; 
 	border-radius: 10px; 
   }
+
+
+     /* HomeHero.css */
+.gallery {
+	perspective: 1000px;
+      }
+      
+      .home-button {
+	letter-spacing: 1.5px;
+	backface-visibility: hidden;
+      }
+      
+      @media (max-width: 640px) {
+	.gallery {
+	  min-height: 500px;
+	}
+	
+	.gallery img {
+	  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	}
+      }
+      
+      @media (min-width: 768px) {
+	.gallery {
+	  perspective: 1500px;
+	}
+	
+	.home-button {
+	  letter-spacing: 2px;
+	}
+      }
+      
+      @media (min-width: 1024px) {
+	.gallery {
+	  perspective: 2000px;
+	}
+	
+	.gallery img {
+	  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+	}
+      }

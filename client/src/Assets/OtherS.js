@@ -2,7 +2,7 @@ const OtherS = [
 	{
 		id:1,
 		title:"PROPOSALS",
-		fee:'GHC 3,500',
+		fee:'3,500',
 		description:"ENGAGEMENT & RECEPTION ONLY",
 		detail1: 'Drone',
 		detail2: '2 Cameras',

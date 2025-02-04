@@ -13,59 +13,36 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
 }) => {
   const videoRef1 = useRef<HTMLVideoElement>(null);
   const videoRef2 = useRef<HTMLVideoElement>(null);
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
-  const [audioPermission, setAudioPermission] = useState<boolean | null>(null);
+  const [, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsSmallScreen(window.innerWidth <= 768);
-    };
-
+    const handleResize = () => setIsSmallScreen(window.innerWidth <= 768);
     handleResize();
     window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
-    const askForAudioPermission = async () => {
+    const initVideo = async () => {
       try {
         if (videoRef1.current) {
+          videoRef1.current.muted = true;
           await videoRef1.current.play();
-          setAudioPermission(false);
         }
       } catch (err) {
-        setAudioPermission(false);
+        console.error("Video play failed:", err);
       }
     };
-
-    askForAudioPermission();
+    initVideo();
   }, []);
 
-  useEffect(() => {
-    if (videoRef1.current && videoRef2.current) {
-      setTimeout(() => {
-        videoRef1.current?.play();
-        videoRef2.current?.play();
-      }, 2000);
-
-      if (audioPermission !== null) {
-        videoRef1.current.muted = !audioPermission;
-        videoRef2.current.muted = true;
-      }
-    }
-  }, [audioPermission]);
-
   return (
-    <div className="relative w-4/5 mx-auto overflow-hidden">
-      {/* Video */}
-      <div className="relative w-full h-[700px]">
-        {/* Video */}
+    <div className="relative w-full overflow-hidden">
+      {/* Hero Video Section */}
+      <div className="relative h-[50vh] md:h-[70vh] w-full">
         <video
           ref={videoRef1}
-          className="object-fill w-full h-full"
+          className="object-cover w-full h-full"
           loop
           muted
           playsInline
@@ -74,90 +51,80 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
           <source src={videoSrc} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-
-        {/* Centered "PORTFOLIO" Text */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-white text-5xl font-semibold uppercase z-10">
+        <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+          <h1 className="text-3xl md:text-5xl font-semibold uppercase text-white z-10">
             Portfolio
-          </div>
+          </h1>
         </div>
       </div>
 
-
-      {/* Other Content */}
-      <div className="py-16">
-        <div className="flex-1 text-center lg:text-center">
-          <h1 className="text-3xl text-gray-600 items-center mb-2 ">Traditional Marriage</h1>
-
-        </div>
-
-        <div className="w-full h-[594px] relative py-16">
-          <img
-            src={imageSrc1}
-            alt="Portfolio"
-            className="object-fill w-full h-[594px]"
-          />
-        </div>
-      </div>
-
-      <div className="py-12">
-        <div className="flex-1 text-center lg:text-center">
-          <h1 className="text-3xl text-gray-600 items-center mb-2 ">White Weddings</h1>
-
-
-          <div className="w-full h-[594px] relative py-6">
+      {/* Content Sections */}
+      <div className="space-y-8 md:space-y-16 py-8 md:py-16">
+        {/* Traditional Marriage */}
+        <section className="space-y-4 md:space-y-8">
+          <h2 className="text-2xl md:text-3xl text-gray-600 text-center">
+            Traditional Marriage
+          </h2>
+          <div className="relative h-[40vh] md:h-[60vh] w-full">
             <img
-              src={imageSrc2}
-              alt="Portfolio"
-              className="object-fill w-full h-[594px]"
+              src={imageSrc1}
+              alt="Traditional Marriage"
+              className="object-cover w-full h-full"
             />
           </div>
-        
-      </div>
-      {/* pre - weddings  */}
+        </section>
 
-      <div className="py-12">
-        <div className="flex-1 text-center lg:text-center">
-          <h1 className="text-3xl text-gray-600 items-center mb-2 ">Pre-Weddings</h1>
-
-
-          <div className="w-full h-[594px] relative py-6">
+        {/* White Weddings */}
+        <section className="space-y-4 md:space-y-8">
+          <h2 className="text-2xl md:text-3xl text-gray-600 text-center">
+            White Weddings
+          </h2>
+          <div className="relative h-[40vh] md:h-[60vh] w-full">
             <img
               src={imageSrc2}
-              alt="Portfolio"
-              className="object-fill w-full h-[594px]"
+              alt="White Weddings"
+              className="object-cover w-full h-full"
             />
           </div>
-        </div>
-       
-      </div>
-      {/* Coperate servcies */}
-      <div className="py-12">
-        <div className="flex-1 text-center lg:text-center">
-          <h1 className="text-3xl text-gray-600 items-center mb-2 ">Coperate Services</h1>
+        </section>
 
-
-          <div className="w-full h-[594px] relative py-6">
+        {/* Pre-Weddings */}
+        <section className="space-y-4 md:space-y-8">
+          <h2 className="text-2xl md:text-3xl text-gray-600 text-center">
+            Pre-Weddings
+          </h2>
+          <div className="relative h-[40vh] md:h-[60vh] w-full">
             <img
               src={imageSrc2}
-              alt="Portfolio"
-              className="object-fill w-full h-[594px]"
+              alt="Pre-Weddings"
+              className="object-cover w-full h-full"
             />
           </div>
-        </div>
-      </div>
+        </section>
 
+        {/* Corporate Services */}
+        <section className="space-y-4 md:space-y-8">
+          <h2 className="text-2xl md:text-3xl text-gray-600 text-center">
+            Corporate Services
+          </h2>
+          <div className="relative h-[40vh] md:h-[60vh] w-full">
+            <img
+              src={imageSrc2}
+              alt="Corporate Services"
+              className="object-cover w-full h-full"
+            />
+          </div>
+        </section>
 
-
-      <div className="py-12">
-        <div className="flex-1 text-center lg:text-center">
-          <h1 className="text-3xl text-gray-600 items-center mb-2 ">Parties / Celebrations</h1>
-
-
-          <div className="w-full h-[700px] relative py-6">
+        {/* Parties/Celebrations */}
+        <section className="space-y-4 md:space-y-8">
+          <h2 className="text-2xl md:text-3xl text-gray-600 text-center">
+            Parties / Celebrations
+          </h2>
+          <div className="relative h-[50vh] md:h-[70vh] w-full">
             <video
               ref={videoRef2}
-              className="object-fill w-full h-[700px]"
+              className="object-cover w-full h-full"
               loop
               muted
               playsInline
@@ -167,21 +134,9 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
               Your browser does not support the video tag.
             </video>
           </div>
-        </div>
-
+        </section>
       </div>
-
-      {!isSmallScreen && (
-        <div
-          className="absolute inset-0"
-          style={{ background: "rgba(0, 0, 0, 0)" }}
-          onMouseEnter={() => {
-            videoRef1.current?.play();
-          }}
-        ></div>
-      )}
     </div>
-    </div >
   );
 };
 
