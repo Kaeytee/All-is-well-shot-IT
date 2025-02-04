@@ -6,7 +6,7 @@ const AboutHero = () => {
   return (
     <div className="relative w-full overflow-hidden">
       {/* Hero Section */}
-      <div className="relative w-full h-[594px] overflow-hidden">
+      <div className="relative lg:h-[600px] h-[300px] overflow-hidden group sm:h-[400px] md:h-[600px]">
 	  <img
 		src={about}
 		alt="About Us Background"
