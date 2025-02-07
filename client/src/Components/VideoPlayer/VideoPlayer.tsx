@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-
+// if you want to use the entire thing i have placed them inside the VideoDummy.tsx file in thie directory
 interface VideoPlayerProps {
   videoSrc: string;
   imageSrc1: string;
@@ -60,66 +60,12 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
 
       {/* Content Sections */}
       <div className="space-y-8 md:space-y-16 py-8 md:py-16">
-        {/* Traditional Marriage */}
-        <section className="space-y-4 md:space-y-8">
-          <h2 className="text-2xl md:text-3xl text-gray-600 text-center">
-            Traditional Marriage
-          </h2>
-          <div className="relative h-[40vh] md:h-[60vh] w-full">
-            <img
-              src={imageSrc1}
-              alt="Traditional Marriage"
-              className="object-cover w-full h-full"
-            />
-          </div>
-        </section>
-
-        {/* White Weddings */}
-        <section className="space-y-4 md:space-y-8">
-          <h2 className="text-2xl md:text-3xl text-gray-600 text-center">
-            White Weddings
-          </h2>
-          <div className="relative h-[40vh] md:h-[60vh] w-full">
-            <img
-              src={imageSrc2}
-              alt="White Weddings"
-              className="object-cover w-full h-full"
-            />
-          </div>
-        </section>
-
-        {/* Pre-Weddings */}
-        <section className="space-y-4 md:space-y-8">
-          <h2 className="text-2xl md:text-3xl text-gray-600 text-center">
-            Pre-Weddings
-          </h2>
-          <div className="relative h-[40vh] md:h-[60vh] w-full">
-            <img
-              src={imageSrc2}
-              alt="Pre-Weddings"
-              className="object-cover w-full h-full"
-            />
-          </div>
-        </section>
-
-        {/* Corporate Services */}
-        <section className="space-y-4 md:space-y-8">
-          <h2 className="text-2xl md:text-3xl text-gray-600 text-center">
-            Corporate Services
-          </h2>
-          <div className="relative h-[40vh] md:h-[60vh] w-full">
-            <img
-              src={imageSrc2}
-              alt="Corporate Services"
-              className="object-cover w-full h-full"
-            />
-          </div>
-        </section>
+        
 
         {/* Parties/Celebrations */}
         <section className="space-y-4 md:space-y-8">
           <h2 className="text-2xl md:text-3xl text-gray-600 text-center">
-            Parties / Celebrations
+            White Weddings and Parties
           </h2>
           <div className="relative h-[50vh] md:h-[70vh] w-full">
             <video
