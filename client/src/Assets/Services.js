@@ -36,7 +36,7 @@ const Services = [
 {
 	id: 5,
 	name: 'Corporate Events',
-	description: `In today's fast-paced and competitive corporate world, companies are constantly seeking innovative ways to capture and convey the essence of their events. Blaqeye provides an effective and engaging media to showcase the highlights, atmosphere, and key messages of corporate events.`,
+	description: `In today's fast-paced and competitive corporate world, companies are constantly seeking innovative ways to capture and convey the essence of their events. AllIsWell provides an effective and engaging media to showcase the highlights, atmosphere, and key messages of corporate events.`,
 	image: corporate,
 
 },
