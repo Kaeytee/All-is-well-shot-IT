@@ -1,0 +1,29 @@
+.question-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #d1d1d1;
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.question-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+.question-button img {
+  width: 70%;
+  height: 70%;
+}

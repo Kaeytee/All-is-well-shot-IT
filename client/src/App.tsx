@@ -9,6 +9,9 @@ import Contact from './Pages/Contact.tsx';
 import NotFound from './Pages/NotFound.tsx';
 import BookUs from './Pages/BookUs.tsx';
 import Portfolio from './Pages/Porfolio.tsx';
+import Marquee from './Components/Marquee/Marquee.tsx';
+import QuestionButton from './Components/QuestionButton/QuestionButton.tsx';
+import QuestionPage from './Pages/QuestionPage.tsx';
 
 
 const App = () => {
@@ -43,10 +46,13 @@ const App = () => {
             <Route path="/contact-us" element={<Contact />} />
             <Route path="/ratecard" element={<RateCard />} />
             <Route path="/team" element={<Team />} />
+            <Route path="/ask-question" element={<QuestionPage isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
+        <Marquee />
         <Footer />
+        <QuestionButton />
       </div>
     </Router>
   );
