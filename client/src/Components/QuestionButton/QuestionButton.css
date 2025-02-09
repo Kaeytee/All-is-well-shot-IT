@@ -16,14 +16,40 @@
   align-items: center;
   justify-content: center;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  animation: vibrate 0.3s infinite;
 }
 
 .question-button:hover {
-  background-color: #0056b3;
+  background-color: #ffffff;
   transform: scale(1.1);
 }
 
 .question-button img {
   width: 70%;
   height: 70%;
+}
+
+@keyframes vibrate {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+  75% { transform: rotate(-5deg); }
+}
+
+.tooltip {
+  position: absolute;
+  top: -30px;
+  right: 50%;
+  transform: translateX(50%);
+  background-color: #333;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tooltip.show {
+  opacity: 1;
 }

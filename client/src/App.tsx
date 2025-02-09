@@ -12,6 +12,7 @@ import Portfolio from './Pages/Porfolio.tsx';
 import Marquee from './Components/Marquee/Marquee.tsx';
 import QuestionButton from './Components/QuestionButton/QuestionButton.tsx';
 import QuestionPage from './Pages/QuestionPage.tsx';
+import ScrollToTop from './Components/ScrollToTop/ScrollToTop.tsx';
 
 
 const App = () => {
@@ -31,6 +32,7 @@ const App = () => {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="flex min-h-screen w-full flex-col">
         <div className="navbar-wrapper">
           <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
