@@ -24,13 +24,14 @@ const Contact = () => {
       [name]: value
     }));
   };
+  const API_BASE_URL = "https://all-is-well-backend.onrender.com";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     try {
       console.log('Submitting form data:', formData);
-      await axios.post('https://server-sable-psi.vercel.app/send-contact-email', formData);
+      await axios.post(`${API_BASE_URL}/send-contact-email`, formData);
       setIsSubmitted(true);
       setIsError(false);
       console.log('Form submitted successfully');

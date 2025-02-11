@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Styles/QuestionPage.css';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 interface QuestionPageProps {
   isMenuOpen: boolean;
@@ -9,11 +10,37 @@ interface QuestionPageProps {
 
 const QuestionPage: React.FC<QuestionPageProps> = ({ isMenuOpen, setIsMenuOpen }) => {
   const navigate = useNavigate();
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [formData, setFormData] = useState({ question: '' });
 
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    // Logic to send the question to the company
-    alert('Your question has been submitted!');
+  const API_BASE_URL = "https://all-is-well-backend.onrender.com";
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    try {
+      console.log('Submitting form data:', formData);
+      await axios.post(`${API_BASE_URL}/send-question-email`, formData);
+      setIsSubmitted(true);
+      setIsError(false);
+      console.log('Form submitted successfully');
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setIsSubmitted(true);
+      setIsError(true);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const faqItems = [
@@ -26,13 +53,23 @@ const QuestionPage: React.FC<QuestionPageProps> = ({ isMenuOpen, setIsMenuOpen }
 
   return (
     <div className="question-page">
-	
       <main className="flex-1">
         <h1>Ask a Question</h1>
         <form onSubmit={handleSubmit}>
-          <textarea placeholder="Type your question here..." required></textarea>
-          <button type="submit">Submit</button>
+          <textarea 
+            name="question"
+            value={formData.question}
+            onChange={handleInputChange}
+            placeholder="Type your question here..." 
+            required
+          ></textarea>
+          <button type="submit">{isLoading ? 'Submitting...' : 'Submit'}</button>
         </form>
+        {isSubmitted && (
+          <div className={`p-4 rounded-md text-center ${isError ? 'bg-red-500 text-white' : 'bg-green-500 text-white'}`}>
+            {isError ? 'Error submitting your question. Please try again.' : 'Thank you! Your question has been submitted!'}
+          </div>
+        )}
         <div className="faq-section">
           <h2>Frequently Asked Questions</h2>
           <ul>

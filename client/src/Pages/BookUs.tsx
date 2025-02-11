@@ -46,13 +46,15 @@ ${bookingData.detail3 || ''}`;
       email: name === 'recipientEmail' ? value : prev.email // Update email when recipientEmail changes
     }));
   };
+  const API_BASE_URL = "https://all-is-well-backend.onrender.com";
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     try {
       console.log('Submitting form data:', formData);
-      await axios.post('http://localhost:8000/send-email', formData);
+      await axios.post(`${API_BASE_URL}/send-email`, formData);
       setIsSubmitted(true);
       setIsError(false);
       console.log('Form submitted successfully');
