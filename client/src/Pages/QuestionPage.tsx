@@ -15,7 +15,7 @@ const QuestionPage: React.FC<QuestionPageProps> = ({ isMenuOpen, setIsMenuOpen }
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({ question: '' });
 
-  const API_BASE_URL = "https://backend-service.onrender.com";
+  const API_BASE_URL = "https://all-is-well-backend.onrender.com";
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;

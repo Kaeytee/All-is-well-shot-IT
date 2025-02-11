@@ -24,7 +24,7 @@ const Contact = () => {
       [name]: value
     }));
   };
-  const API_BASE_URL = "https://backend-service.onrender.com";
+  const API_BASE_URL = "https://all-is-well-backend.onrender.com";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
