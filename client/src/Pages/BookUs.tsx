@@ -52,7 +52,7 @@ ${bookingData.detail3 || ''}`;
     setIsLoading(true);
     try {
       console.log('Submitting form data:', formData);
-      await axios.post('https://server-sable-psi.vercel.app/send-email', formData);
+      await axios.post('http://localhost:8000/send-email', formData);
       setIsSubmitted(true);
       setIsError(false);
       console.log('Form submitted successfully');
