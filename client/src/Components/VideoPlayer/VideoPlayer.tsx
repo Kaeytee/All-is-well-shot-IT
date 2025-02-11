@@ -12,7 +12,6 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
   imageSrc2,
 }) => {
   const videoRef1 = useRef<HTMLVideoElement>(null);
-  const videoRef2 = useRef<HTMLVideoElement>(null);
   const [, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
