@@ -10,7 +10,7 @@ const app = express();
 
 // Configure CORS (Ensure frontend URL is correct)
 app.use(cors({
-  origin: 'http://localhost:3000', // Update to match your frontend
+  origin: 'http://localhost:3000' || 'https://all-is-well-shot-it.vercel.app', // Update to match your frontend
   methods: ['POST'],
   allowedHeaders: ['Content-Type']
 }));
