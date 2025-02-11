@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { Input } from "../Components/ui/input.tsx";
 import { Textarea } from "../Components/ui/textarea.tsx";
 import { Button } from "../Components/ui/button.tsx";
+import axios from 'axios';
 
 const BookUs = () => {
   const location = useLocation();
@@ -22,12 +23,15 @@ ${bookingData.detail3 || ''}`;
   };
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    email: '',
+    email: '', // This will be set to recipientEmail
     service: bookingData?.title || '', // Initialize with booking title if available
-    message: formatBookingDetails() // Initialize with formatted booking details
+    message: formatBookingDetails(), // Initialize with formatted booking details
+    recipientEmail: '' // Add recipient email field
   });
 
   useEffect(() => {
@@ -38,14 +42,32 @@ ${bookingData.detail3 || ''}`;
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: value,
+      email: name === 'recipientEmail' ? value : prev.email // Update email when recipientEmail changes
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setIsSubmitted(true);
+    setIsLoading(true);
+    try {
+      console.log('Submitting form data:', formData);
+      await axios.post('http://localhost:8000/send-email', formData);
+      setIsSubmitted(true);
+      setIsError(false);
+      console.log('Form submitted successfully');
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setIsSubmitted(true);
+      setIsError(true);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleRetry = () => {
+    setIsSubmitted(false);
+    setIsError(false);
   };
 
   return (
@@ -59,8 +81,17 @@ ${bookingData.detail3 || ''}`;
       </div>
 
       {isSubmitted ? (
-        <div className="bg-green-500 text-white p-4 rounded-md text-center">
-          Thank you! Your submission has been received!
+        <div className={`p-4 rounded-md text-center ${isError ? 'bg-red-500 text-white' : 'bg-green-500 text-white'}`}>
+          {isError ? (
+            <>
+              <p>Error submitting your form. Please try again.</p>
+              <Button onClick={handleRetry} className="mt-4 bg-white text-black hover:bg-gray-200">
+                Return to Form
+              </Button>
+            </>
+          ) : (
+            'Thank you! Your submission has been received!'
+          )}
         </div>
       ) : (
         <>
@@ -90,11 +121,11 @@ ${bookingData.detail3 || ''}`;
             <div className="space-y-2">
               <label className="text-sm font-medium">EMAIL ADDRESS</label>
               <Input
-                name="email"
+                name="recipientEmail"
                 type="email"
-                value={formData.email}
+                value={formData.recipientEmail}
                 onChange={handleInputChange}
-                placeholder="Enter your email"
+                placeholder="Enter your email address"
                 className="rounded-none"
                 required
               />
@@ -113,16 +144,17 @@ ${bookingData.detail3 || ''}`;
             <div className="space-y-2">
               <label className="text-sm font-medium">MESSAGE</label>
               <Textarea
-          name="message"
-          value={formData.message}
-          onChange={handleInputChange}
-          placeholder="Hi there, I want to book a service."
-          className="min-h-[150px] rounded-none"
-          required
-        />
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                placeholder="Hi there, I want to book a service."
+                className="min-h-[150px] rounded-none"
+                required
+              />
             </div>
+            
             <Button type="submit" className="w-full rounded-none bg-black text-white hover:bg-black/90 ">
-              SUBMIT
+              {isLoading ? 'Submitting...' : 'SUBMIT'}
             </Button>
           </form>
           <hr className="my-32 border-gray-300" />
@@ -133,4 +165,3 @@ ${bookingData.detail3 || ''}`;
 };
 
 export default BookUs;
-

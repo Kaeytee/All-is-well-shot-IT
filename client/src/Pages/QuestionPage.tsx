@@ -26,6 +26,7 @@ const QuestionPage: React.FC<QuestionPageProps> = ({ isMenuOpen, setIsMenuOpen }
 
   return (
     <div className="question-page">
+	
       <main className="flex-1">
         <h1>Ask a Question</h1>
         <form onSubmit={handleSubmit}>
