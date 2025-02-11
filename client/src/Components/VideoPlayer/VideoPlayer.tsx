@@ -12,7 +12,6 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
   imageSrc2,
 }) => {
   const videoRef1 = useRef<HTMLVideoElement>(null);
-  const videoRef2 = useRef<HTMLVideoElement>(null);
   const [, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
@@ -63,24 +62,32 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
         
 
         {/* Parties/Celebrations */}
-        <section className="space-y-4 md:space-y-8">
-          <h2 className="text-2xl md:text-3xl text-gray-600 text-center">
-            White Weddings and Parties
-          </h2>
-          <div className="relative h-[50vh] md:h-[70vh] w-full">
-            <video
-              ref={videoRef2}
-              className="object-cover w-full h-full"
-              loop
-              muted
-              playsInline
-              preload="auto"
-            >
-              <source src={videoSrc} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </section>
+        {/* Corporate Services */}
+	<section className="space-y-4 md:space-y-8">
+	  <h2 className="text-2xl md:text-3xl text-gray-600 text-center">
+	    Corporate Services
+	  </h2>
+	  <div className="relative h-[40vh] md:h-[60vh] w-full">
+	    <img
+	      src={imageSrc2}
+	      alt="Corporate Services"
+	      className="object-cover w-full h-full"
+	    />
+	  </div>
+	</section>
+  {/* Corporate Services */}
+	<section className="space-y-4 md:space-y-8">
+	  <h2 className="text-2xl md:text-3xl text-gray-600 text-center">
+    Parties / Celebrations
+	  </h2>
+	  <div className="relative h-[40vh] md:h-[60vh] w-full">
+	    <img
+	      src={imageSrc1}
+	      alt="Corporate Services"
+	      className="object-cover w-full h-full"
+	    />
+	  </div>
+	</section>
       </div>
     </div>
   );

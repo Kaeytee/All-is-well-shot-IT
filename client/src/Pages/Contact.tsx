@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import contact from '../Assets/contact.png';
 import { Input } from "../Components/ui/input.tsx";
 import { Textarea } from "../Components/ui/textarea.tsx";
@@ -6,6 +7,8 @@ import { Button } from "../Components/ui/button.tsx";
 
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -22,10 +25,22 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setIsSubmitted(true);
+    setIsLoading(true);
+    try {
+      console.log('Submitting form data:', formData);
+      await axios.post('http://localhost:8000/send-contact-email', formData);
+      setIsSubmitted(true);
+      setIsError(false);
+      console.log('Form submitted successfully');
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setIsSubmitted(true);
+      setIsError(true);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -54,8 +69,17 @@ const Contact = () => {
           </div>
 
           {isSubmitted ? (
-            <div className="bg-green-500 text-white p-4 rounded-md text-center">
-              Thank you! Your submission has been received!
+            <div className={`p-4 rounded-md text-center ${isError ? 'bg-red-500 text-white' : 'bg-green-500 text-white'}`}>
+              {isError ? (
+                <>
+                  <p>Error submitting your form. Please try again.</p>
+                  <Button onClick={() => setIsSubmitted(false)} className="mt-4 bg-white text-black hover:bg-gray-200">
+                    Return to Form
+                  </Button>
+                </>
+              ) : (
+                'Thank you! Your submission has been received!'
+              )}
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
@@ -116,7 +140,7 @@ const Contact = () => {
                 />
               </div>
               <Button type="submit" className="w-full rounded-none bg-black text-white hover:bg-black/90 transition-colors duration-300">
-                SUBMIT
+                {isLoading ? 'Submitting...' : 'SUBMIT'}
               </Button>
             </form>
           )}
